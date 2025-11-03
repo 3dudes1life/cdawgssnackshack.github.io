@@ -91,8 +91,8 @@
 
     .content {
       z-index: 1;
-      max-width: 800px;
-      margin: 140px auto 40px;
+      max-width: 1000px;
+      margin: 140px auto 60px;
       text-align: center;
       padding: 0 20px;
       position: relative;
@@ -128,46 +128,55 @@
       text-shadow: 1px 1px 2px #00000055;
     }
 
+    .launch-note {
+      margin: 40px auto 20px;
+      font-size: 1.4em;
+      background: #00000033;
+      padding: 16px 20px;
+      border-radius: 12px;
+      color: #fffbe8;
+      max-width: 700px;
+      box-shadow: 0 2px 8px #00000055;
+    }
+
+    .cookie-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+      justify-items: center;
+    }
+
+    .cookie-card {
+      background: #ffffff11;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    .cookie-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cookie-card p {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
     footer {
       margin-top: 50px;
       font-size: 0.85em;
       color: #fefae099;
       text-shadow: 1px 1px 2px #00000055;
     }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 16px;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .palms-left,
-      .palms-right {
-        width: 60%;
-        opacity: 0.15;
-      }
-
-      h1 {
-        font-size: 2em;
-      }
-
-      .tagline {
-        font-size: 1em;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- 🧭 Header with logo and links -->
   <header>
     <a href="/">
       <img src="cdsnackshacklogo2.png" alt="C-Dawg's Snack Shack logo" class="header-logo" />
@@ -179,20 +188,49 @@
     </div>
   </header>
 
-  <!-- 🌴 Palm Silhouettes -->
   <img src="PalmSilhouttes.png" alt="Palm left" class="palms-left" />
   <img src="PalmSilhouttes.png" alt="Palm right" class="palms-right" />
 
-  <!-- 🍪 Main content -->
   <div class="content">
-    <img src="cdsnackshacklogo2.png" alt="C-Dawg's Snack Shack cookie logo" class="logo" />
+    <img src="cdsnackshacklogo2.png" alt="C-Dawg's Snack Shack logo" class="logo" />
     <h1>C-Dawg's Snack Shack</h1>
     <p class="tagline">Cookies, Cowboy Candy & Island Vibes 🌴🍪🔥</p>
+
+    <div class="launch-note">
+      <strong>We’re almost ready to launch!</strong><br />
+      Once we pass our home kitchen inspection, you’ll be able to order cookies right here!
+    </div>
+
+    <div class="cookie-gallery">
+      <div class="cookie-card">
+        <img src="cookie1.png" alt="Oatmeal Raisin Cookie" />
+        <p>Oatmeal Raisin Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie2.png" alt="Sugar Sprinkle Cookie" />
+        <p>Sugar Sprinkle Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie3.png" alt="Chocolate Chip Cookie" />
+        <p>Chocolate Chip Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie4.png" alt="Nanny’s Pound Cake Cookie" />
+        <p>Nanny’s Pound Cake Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie5.png" alt="Molasses Cookie" />
+        <p>Molasses Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie6.png" alt="Peanut Butter Cookie" />
+        <p>Peanut Butter Cookie</p>
+      </div>
+    </div>
 
     <footer>
       &copy; 2025 C-Dawg's Snack Shack. All rights reserved – OutAt INC.
     </footer>
   </div>
-
 </body>
 </html>
