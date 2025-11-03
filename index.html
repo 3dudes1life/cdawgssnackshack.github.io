@@ -2,68 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C-Dawg’s Snack Shack</title>
-  <meta name="description" content="Cookies, Cowboy Candy & Island Vibes – Coming Soon!" />
-  <meta property="og:image" content="logo.png" />
-  <meta property="og:title" content="C-Dawg’s Snack Shack" />
-  <meta property="og:description" content="Cookies, Cowboy Candy & Island Vibes – Coming Soon!" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C-Dawg's Snack Shack</title>
+  <meta property="og:title" content="C-Dawg's Snack Shack" />
+  <meta property="og:description" content="Cookies, Cowboy Candy & Island Vibes 🌴🍪🔥" />
+  <meta property="og:image" content="https://cdawgssnackshack.com/cdsnackshacklogo2.png" />
+  <meta property="og:url" content="https://cdawgssnackshack.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="favicon.png?v=2" />
+
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(to top, #2d6a6c, #98e0c8);
-      color: #fff;
-      text-align: center;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #94cfc6 0%, #3b706c 100%);
+      color: #fefae0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
 
     header {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      padding: 14px 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 16px 32px;
+      justify-content: space-between;
+      border-bottom: 1px solid #ffffff22;
     }
 
-    header img {
-      height: 60px;
+    .header-logo {
+      height: 48px;
+      width: auto;
+      display: block;
     }
 
-    nav a {
-      color: #fff;
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #fefae0;
       text-decoration: none;
-      margin-left: 24px;
       font-weight: 600;
+      font-size: 1.1em;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-shadow: 1px 1px 3px #00000088;
+    }
+
+    .palms-left, .palms-right {
+      position: fixed;
+      bottom: 0;
+      width: 35%;
+      max-width: 500px;
+      height: 100vh;
+      object-fit: cover;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .palms-left {
+      left: 0;
+    }
+
+    .palms-right {
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+    .content {
+      z-index: 1;
+      max-width: 1100px;
+      margin: 140px auto 60px;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .logo {
+      width: 90%;
+      max-width: 500px;
+      height: auto;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 1.6s ease-in-out forwards;
+      filter: drop-shadow(0 0 12px #ffffffcc);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
 
     h1 {
       font-size: 2.5em;
-      margin-top: 12px;
-      text-shadow: 2px 2px 4px #00000088;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px #00000055;
     }
 
-    h2 {
-      font-weight: 400;
+    .tagline {
       font-size: 1.2em;
-      margin-top: -10px;
-      color: #fffce0;
+      font-style: italic;
+      color: #fefae0cc;
+      text-shadow: 1px 1px 2px #00000055;
     }
 
-    .launch-message {
-      background: rgba(0, 0, 0, 0.3);
-      display: inline-block;
-      margin: 20px auto 30px;
-      padding: 10px 20px;
-      font-size: 1.25em;
-      border-radius: 16px;
+    .launch-note {
+      margin: 40px auto 20px;
+      font-size: 1.4em;
+      background: #00000033;
+      padding: 16px 20px;
+      border-radius: 12px;
+      color: #fffbe8;
+      max-width: 700px;
+      box-shadow: 0 2px 8px #00000055;
     }
 
     .cookie-gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 24px;
-      padding: 0 40px 60px;
+      margin-top: 40px;
+      padding: 0 10px;
       justify-items: center;
     }
 
@@ -72,99 +152,91 @@
       border-radius: 14px;
       padding: 16px;
       text-align: center;
-      width: 100%;
-      max-width: 250px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .cookie-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
     }
 
     .cookie-card img {
-      max-width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 12px;
+      width: 100%;
+      max-width: 200px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
     .cookie-card p {
-      font-weight: bold;
-      font-size: 1.05em;
-      color: #fffce1;
       margin: 0;
+      font-weight: 600;
+      font-size: 1.1em;
     }
 
     footer {
-      margin-top: 20px;
-      font-size: 0.9em;
-      color: #eee;
-      padding-bottom: 20px;
-    }
-
-    @media (max-width: 800px) {
-      .cookie-gallery {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 20px 40px;
-      }
-
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      nav a {
-        margin-left: 12px;
-        font-size: 1em;
-      }
+      margin-top: 50px;
+      font-size: 0.85em;
+      color: #fefae099;
+      text-shadow: 1px 1px 2px #00000055;
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <img src="logo.png" alt="C-Dawg’s Logo" />
-    <nav>
-      <a href="#">Home</a>
-      <a href="https://instagram.com/cdawgssnackshack" target="_blank">Instagram</a>
+    <a href="/">
+      <img src="cdsnackshacklogo2.png" alt="C-Dawg's Snack Shack logo" class="header-logo" />
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="https://instagram.com/cdawgs_snackshack/" target="_blank">Instagram</a>
       <a href="https://cdawgssnackshack.etsy.com" target="_blank">Etsy</a>
-    </nav>
+    </div>
   </header>
 
-  <h1>C-Dawg’s Snack Shack</h1>
-  <h2>Cookies, Cowboy Candy & Island Vibes 🌴🍪🔥</h2>
+  <img src="PalmSilhouttes.png" alt="Palm left" class="palms-left" />
+  <img src="PalmSilhouttes.png" alt="Palm right" class="palms-right" />
 
-  <div class="launch-message">We’re almost ready to launch!</div>
+  <div class="content">
+    <img src="cdsnackshacklogo2.png" alt="C-Dawg's Snack Shack logo" class="logo" />
+    <h1>C-Dawg's Snack Shack</h1>
+    <p class="tagline">Cookies, Cowboy Candy & Island Vibes 🌴🍪🔥</p>
 
-  <section class="cookie-gallery">
-    <div class="cookie-card">
-      <img src="cookie1.png" alt="Oatmeal Raisin Cookie" />
-      <p>Oatmeal Raisin Cookie</p>
+    <div class="launch-note">
+      <strong>We’re almost ready to launch!</strong>
     </div>
-    <div class="cookie-card">
-      <img src="cookie2.png" alt="Sugar Sprinkle Cookie" />
-      <p>Sugar Sprinkle Cookie</p>
-    </div>
-    <div class="cookie-card">
-      <img src="cookie3.png" alt="Chocolate Chip Cookie" />
-      <p>Chocolate Chip Cookie</p>
-    </div>
-    <div class="cookie-card">
-      <img src="cookie4.png" alt="Nanny’s Pound Cake Cookie" />
-      <p>Nanny’s Pound Cake Cookie</p>
-    </div>
-    <div class="cookie-card">
-      <img src="cookie5.png" alt="Molasses Cookie" />
-      <p>Molasses Cookie</p>
-    </div>
-    <div class="cookie-card">
-      <img src="cookie6.png" alt="Peanut Butter Cookie" />
-      <p>Peanut Butter Cookie</p>
-    </div>
-  </section>
 
-  <footer>
-    © 2025 C-Dawg’s Snack Shack. All rights reserved.
-  </footer>
+    <div class="cookie-gallery">
+      <div class="cookie-card">
+        <img src="cookie1.png" alt="Oatmeal Raisin Cookie" />
+        <p>Oatmeal Raisin Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie2.png" alt="Sugar Sprinkle Cookie" />
+        <p>Sugar Sprinkle Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie3.png" alt="Chocolate Chip Cookie" />
+        <p>Chocolate Chip Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie4.png" alt="Nanny’s Pound Cake Cookie" />
+        <p>Nanny’s Pound Cake Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie5.png" alt="Molasses Cookie" />
+        <p>Molasses Cookie</p>
+      </div>
+      <div class="cookie-card">
+        <img src="cookie6.png" alt="Peanut Butter Cookie" />
+        <p>Peanut Butter Cookie</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 C-Dawg's Snack Shack. All rights reserved – OutAt INC.
+    </footer>
+  </div>
+</body>
+</html>
